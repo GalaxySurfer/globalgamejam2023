@@ -108,7 +108,6 @@ public class GameManager : MonoBehaviour
 
 	public void OpenFolder(int id, bool hasPassword)
 	{
-		//TODO: Make a setup that can switch to a different view.
 		if (hasPassword)
 		{
 			GameObject window = Instantiate(PasswordWindowPrefab, GameScreen.transform);
@@ -116,8 +115,8 @@ public class GameManager : MonoBehaviour
 		}
 		else
 		{
-			//TODO: Write the path of the new view to the main windows path field.
-			Debug.Log($"Show View with id: {id}");
+			View view = _viewList.First(x => x.ViewId == id);
+			RenderView(view);
 		}
 	}
 
@@ -132,7 +131,8 @@ public class GameManager : MonoBehaviour
 		else
 		{
 			GameObject window = Instantiate(TextWindowPrefab, GameScreen.transform);
-			window.GetComponent<TextWindow>().Init("text_file.text", testText);
+			TextFile file = _textFileList.First(x => x.Id == id);
+			window.GetComponent<TextWindow>().Init(file.FileName, file.Text);
 		}
 	}
 
@@ -147,7 +147,8 @@ public class GameManager : MonoBehaviour
 		else
 		{
 			GameObject window = Instantiate(ImageWindowPrefab, GameScreen.transform);
-			window.GetComponent<ImageWindow>().Init("birthday.pic", testSprite);
+			ImageFile file = _imageFileList.First(x => x.Id == id);
+			window.GetComponent<ImageWindow>().Init(file.FileName, file.Image);
 		}
 	}
 

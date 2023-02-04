@@ -5,6 +5,7 @@ using UnityEngine;
 public class TextFile : ScriptableObject
 {
 	public int Id;
+	public string FileName;
 	[TextArea]
 	public string Text;
 }
