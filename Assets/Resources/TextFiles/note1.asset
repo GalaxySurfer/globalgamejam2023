@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdd76359228b284cba4a02b9ac3b20e, type: 3}
   m_Name: note1
   m_EditorClassIdentifier: 
-  Id: 0
+  Id: 1
+  FileName: note1.text
   Text: 
