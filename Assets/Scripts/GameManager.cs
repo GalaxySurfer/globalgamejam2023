@@ -100,7 +100,8 @@ public class GameManager : MonoBehaviour
 	{
 		if (WorldState >= EndWorldState)
 		{
-			//TODO: End game
+			Debug.Log("GAME OVER");
+			Debug.Break();
 		}
 		else
 		{
