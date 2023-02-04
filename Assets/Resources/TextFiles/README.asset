@@ -13,4 +13,12 @@ MonoBehaviour:
   m_Name: README
   m_EditorClassIdentifier: 
   Id: 0
-  Text: 
+  FileName: README.text
+  Text: "Hey there Nugget\n \nIf you're reading this, I'm dead.\n \nI know we haven't
+    talked together in a while and I'm sorry about that. But I need you to help me
+    with something now. It's a matter of utmost importance.\n \nI need you to erase
+    some sensitive data from my system. It's critical that you completely wipe these
+    files and that nobody ever sees the content of these files. They are private
+    and I don't want anyone else in our family to see them. That also means you.
+    Just delete them.\n \nAll the files you have to delete are .bin. \n \nGet Cutty
+    to assist you.\n \n \nI'm sorry\n \n/Sarah"
