@@ -77,4 +77,10 @@ public class Cutty : MonoBehaviour
 			button.GetComponentInChildren<TMP_Text>().text = choice.ChoiceName;
 		}
 	}
+
+	public void StartFinalChain(int id)
+	{
+		GameManager.Instance.StartNewDialogueChain(id);
+		GameManager.Instance.NextDialogueText();
+	}
 }

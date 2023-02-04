@@ -9,7 +9,7 @@ using static View;
 public class GameManager : MonoBehaviour
 {
 	[Header("Setup")]
-	public int EndWorldState;
+	public int FinalDialogueChainId;
 	public GameObject IconParent;
 	public GameObject GameScreen;
 	public Cutty CuttyScreen;
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
 	// The current state of the world.
 	public int WorldState { get; private set; }
+	private readonly List<int> openedBinFiles = new List<int>();
 
 	private List<View> _viewList;
 	private List<TextFile> _textFileList;
@@ -93,22 +94,21 @@ public class GameManager : MonoBehaviour
 		{
 			WorldState = newState;
 			Debug.Log($"New WorldState: {WorldState}");
-			EvaluateWorldState();
+			CuttyScreen.EvaluateWorldState();
 		}
 	}
 
 	public void AdvanceWorldStateByOne() => SetWorldState(WorldState + 1);
 
-	private void EvaluateWorldState()
+	public void BinFileOpened(int binFileId)
 	{
-		if (WorldState >= EndWorldState)
+		if(!openedBinFiles.Contains(binFileId))
 		{
-			Debug.Log("GAME OVER");
-			Debug.Break();
-		}
-		else
-		{
-			CuttyScreen.EvaluateWorldState();
+			openedBinFiles.Add(binFileId);
+			if(openedBinFiles.Count >= _binFileList.Count)
+			{
+				CuttyScreen.StartFinalChain(FinalDialogueChainId);
+			}
 		}
 	}
 
