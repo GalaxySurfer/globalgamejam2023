@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 	private List<TextFile> _textFileList;
 	private List<ImageFile> _imageFileList;
 	private List<BinFile> _binFileList;
+	private List<DialogueChain> _dialogueList;
 	private PasswordLookup _passwords;
 
 	private readonly Dictionary<int, Action> _worldStateActions = new Dictionary<int, Action>()
@@ -73,6 +74,8 @@ public class GameManager : MonoBehaviour
 		_textFileList = Resources.LoadAll<TextFile>("TextFiles").ToList();
 		_imageFileList = Resources.LoadAll<ImageFile>("ImageFiles").ToList();
 		_binFileList = Resources.LoadAll<BinFile>("BinFiles").ToList();
+		_dialogueList = Resources.LoadAll<DialogueChain>("DialogueChains").ToList();
+
 		_passwords = Resources.LoadAll<PasswordLookup>("")[0];
 
 		View rootFolder = _viewList.First(x => x.ViewId == 1);
