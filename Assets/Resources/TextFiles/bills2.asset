@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cdd76359228b284cba4a02b9ac3b20e, type: 3}
+  m_Name: bills2
+  m_EditorClassIdentifier: 
+  Id: 4
+  FileName: bills2.text
+  Text: '21F7    Laundry
+
+    22F7    Exercise Equipment
+
+    23F7    Shopping Electronics
+
+    24F7   
+    Root Canal Treatment
+
+    25F7    Chemicals
+
+    26F7    Photo Shooting
+
+    27F7   
+    Phone Plan
+
+    28F7    Laptop Computer
+
+    29F7    Spare Computer'
