@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using static PasswordLookup;
+using static View;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,6 +33,7 @@ public class GameManager : MonoBehaviour
 	private List<TextFile> _textFileList;
 	private List<ImageFile> _imageFileList;
 	private List<BinFile> _binFileList;
+	private PasswordLookup _passwords;
 
 	#region Singleton
 	public static GameManager Instance;
@@ -63,6 +67,7 @@ public class GameManager : MonoBehaviour
 		_textFileList = Resources.LoadAll<TextFile>("TextFiles").ToList();
 		_imageFileList = Resources.LoadAll<ImageFile>("ImageFiles").ToList();
 		_binFileList = Resources.LoadAll<BinFile>("BinFiles").ToList();
+		_passwords = Resources.LoadAll<PasswordLookup>("")[0];
 
 		View rootFolder = _viewList.First(x => x.ViewId == 1);
 		RenderView(rootFolder);
@@ -111,8 +116,16 @@ public class GameManager : MonoBehaviour
 	{
 		if (hasPassword)
 		{
-			GameObject window = Instantiate(PasswordWindowPrefab, GameScreen.transform);
-			window.GetComponent<PasswordWindow>().InitPasswordFolder("My birthday", id);
+			PasswordPair pair = GetPasswordPair(id, ElementType.Folder);
+			if (pair == null)
+			{
+				Debug.LogError($"No password pair found for id '{id}', type '{Enum.GetName(typeof(ElementType), ElementType.Folder)}'");
+			}
+			else
+			{
+				GameObject window = Instantiate(PasswordWindowPrefab, GameScreen.transform);
+				window.GetComponent<PasswordWindow>().InitPasswordFolder(pair.Hint, id);
+			}
 		}
 		else
 		{
@@ -126,8 +139,16 @@ public class GameManager : MonoBehaviour
 		//TODO: Make a setup that lets us find a text asset file given an id.
 		if (hasPassword)
 		{
-			GameObject window = Instantiate(PasswordWindowPrefab, GameScreen.transform);
-			window.GetComponent<PasswordWindow>().InitPasswordText("Best Friend", id);
+			PasswordPair pair = GetPasswordPair(id, ElementType.Text);
+			if (pair == null)
+			{
+				Debug.LogError($"No password pair found for id '{id}', type '{Enum.GetName(typeof(ElementType), ElementType.Text)}'");
+			}
+			else
+			{
+				GameObject window = Instantiate(PasswordWindowPrefab, GameScreen.transform);
+				window.GetComponent<PasswordWindow>().InitPasswordText(pair.Hint, id);
+			}
 		}
 		else
 		{
@@ -142,8 +163,16 @@ public class GameManager : MonoBehaviour
 		//TODO: Make a setup that lets us find an image asset file given an id.
 		if (hasPassword)
 		{
-			GameObject window = Instantiate(PasswordWindowPrefab, GameScreen.transform);
-			window.GetComponent<PasswordWindow>().InitPasswordImage("Pet's Name", id);
+			PasswordPair pair = GetPasswordPair(id, ElementType.Image);
+			if (pair == null)
+			{
+				Debug.LogError($"No password pair found for id '{id}', type '{Enum.GetName(typeof(ElementType), ElementType.Image)}'");
+			}
+			else
+			{
+				GameObject window = Instantiate(PasswordWindowPrefab, GameScreen.transform);
+				window.GetComponent<PasswordWindow>().InitPasswordImage(pair.Hint, id);
+			}
 		}
 		else
 		{
@@ -155,12 +184,24 @@ public class GameManager : MonoBehaviour
 
 	public void OpenBinFile(int id)
 	{
-		//TODO: Prompt Cutty
+		PasswordPair pair = GetPasswordPair(id, ElementType.Bin);
+		if (pair == null)
+		{
+			Debug.LogError($"No password pair found for id '{id}', type '{Enum.GetName(typeof(ElementType), ElementType.Bin)}'");
+		}
+		else
+		{
+			GameObject window = Instantiate(PasswordWindowPrefab, GameScreen.transform);
+			window.GetComponent<PasswordWindow>().InitPasswordBin(pair.Hint, id);
+		}
 	}
 
-	public bool CheckPassword(string password, int id)
+	private PasswordPair GetPasswordPair(int id, ElementType type)
 	{
-		//TODO: Make a setup that includes a lookup table for password and id pairs.
-		return false;
+		PasswordPair pair = _passwords.PasswordList.FirstOrDefault(x => x.Id == id && x.Type == type);
+		return pair;
 	}
+
+	public bool CheckPassword(int id, string password, ElementType type)
+		=> _passwords.PasswordList.FirstOrDefault(x => x.Id == id && x.Password == password && x.Type == type) != null;
 }

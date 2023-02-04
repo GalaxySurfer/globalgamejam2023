@@ -1,6 +1,8 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static View;
 
 public class PasswordWindow : MonoBehaviour
 {
@@ -18,10 +20,11 @@ public class PasswordWindow : MonoBehaviour
 		ErrorImage.gameObject.SetActive(false);
 		OkButton.onClick.AddListener(() =>
 		{
-			bool passed = GameManager.Instance.CheckPassword(InputField.text, _id);
+			bool passed = GameManager.Instance.CheckPassword(_id, InputField.text, ElementType.Folder);
 			if (passed == false)
 			{
-				//TODO: Show Error symbol next to password field
+				StopAllCoroutines();
+				StartCoroutine(DoFlashErrorIcon());
 			}
 			else
 			{
@@ -38,10 +41,11 @@ public class PasswordWindow : MonoBehaviour
 		ErrorImage.gameObject.SetActive(false);
 		OkButton.onClick.AddListener(() =>
 		{
-			bool passed = GameManager.Instance.CheckPassword(InputField.text, _id);
+			bool passed = GameManager.Instance.CheckPassword(_id, InputField.text, ElementType.Text);
 			if (passed == false)
 			{
-				//TODO: Show Error symbol next to password field
+				StopAllCoroutines();
+				StartCoroutine(DoFlashErrorIcon());
 			}
 			else
 			{
@@ -58,10 +62,32 @@ public class PasswordWindow : MonoBehaviour
 		ErrorImage.gameObject.SetActive(false);
 		OkButton.onClick.AddListener(() =>
 		{
-			bool passed = GameManager.Instance.CheckPassword(InputField.text, _id);
+			bool passed = GameManager.Instance.CheckPassword(_id, InputField.text, ElementType.Image);
 			if (passed == false)
 			{
-				//TODO: Show Error symbol next to password field
+				StopAllCoroutines();
+				StartCoroutine(DoFlashErrorIcon());
+			}
+			else
+			{
+				GameManager.Instance.OpenImageFile(_id, false);
+				Destroy(gameObject);
+			}
+		});
+	}
+
+	public void InitPasswordBin(string hint, int id)
+	{
+		HintText.text = hint;
+		_id = id;
+		ErrorImage.gameObject.SetActive(false);
+		OkButton.onClick.AddListener(() =>
+		{
+			bool passed = GameManager.Instance.CheckPassword(_id, InputField.text, ElementType.Bin);
+			if (passed == false)
+			{
+				StopAllCoroutines();
+				StartCoroutine(DoFlashErrorIcon());
 			}
 			else
 			{
@@ -83,5 +109,17 @@ public class PasswordWindow : MonoBehaviour
 		{
 			OkButton.onClick.Invoke();
 		}
+	}
+
+	private IEnumerator DoFlashErrorIcon()
+	{
+		float repeatDelay = .25f;
+		ErrorImage.gameObject.SetActive(true);
+		yield return new WaitForSeconds(repeatDelay);
+		ErrorImage.gameObject.SetActive(false);
+		yield return new WaitForSeconds(repeatDelay);
+		ErrorImage.gameObject.SetActive(true);
+		yield return new WaitForSeconds(repeatDelay);
+		ErrorImage.gameObject.SetActive(false);
 	}
 }
