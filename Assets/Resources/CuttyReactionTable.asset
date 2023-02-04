@@ -15,3 +15,5 @@ MonoBehaviour:
   ReactionList:
   - WorldState: 1
     DialogueChainId: 0
+  - WorldState: 3
+    DialogueChainId: 1

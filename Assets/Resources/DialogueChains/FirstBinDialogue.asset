@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 645ebdd7d60b7ca4a8abfec79ad96433, type: 3}
+  m_Name: FirstBinDialogue
+  m_EditorClassIdentifier: 
+  Id: 1
+  Chain:
+  - {fileID: 11400000, guid: c847bb588ab8c4bcb8afa6f56347b26c, type: 2}
+  - {fileID: 11400000, guid: ae4a6de1a5a524fb297b9c8f9c2a9a21, type: 2}
+  - {fileID: 11400000, guid: 3126df58e10214484b69682a3a697ac8, type: 2}
+  - {fileID: 11400000, guid: 91ee07a8f2618411da1ba38e5c8ae81f, type: 2}
+  - {fileID: 11400000, guid: 6a8ae8581f2b9488db5b9388e0dd2c7d, type: 2}

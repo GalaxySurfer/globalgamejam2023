@@ -9,43 +9,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec54324ad2f94004bbf4643b155038a9, type: 3}
-  m_Name: Files
+  m_Script: {fileID: 11500000, guid: 93c7bebe0cdd8984fa940b7da868ac87, type: 3}
+  m_Name: Dialogue1
   m_EditorClassIdentifier: 
-  ViewId: 5
-  PreviousViewId: 2
-  Path: root:/Documents/Files
-  Elements:
-  - Id: 0
-    Name: 25F7.bin
-    HasPassword: 1
-    Type: 3
-    OnOpen:
+  Text: Can't open the this file! Don't even know what it contains.
+  CuttyImage: {fileID: 21300000, guid: f7bc5927843314c7a8c4ed6cbbeaaf3d, type: 3}
+  Choices:
+  - ChoiceName: Delete
+    OnChoice:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 11400000, guid: 831a6b186bd6fb14aa0a17820a24a326, type: 2}
           m_TargetAssemblyTypeName: ScriptableObjectManager, Assembly-CSharp
-          m_MethodName: SetNewWorldState
-          m_Mode: 3
+          m_MethodName: NextDialogueText
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 3
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Id: 6
-    Name: Laundry
-    HasPassword: 0
-    Type: 0
-    OnOpen:
-      m_PersistentCalls:
-        m_Calls: []
-  - Id: 7
-    Name: Exercising Plans
-    HasPassword: 0
-    Type: 0
-    OnOpen:
-      m_PersistentCalls:
-        m_Calls: []
