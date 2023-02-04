@@ -6,6 +6,8 @@ using UnityEngine;
 public class View : ScriptableObject
 {
 	public int ViewId;
+	public int PreviousViewId;
+	public string Path;
 	public List<ViewElement> Elements;
 
 	[Serializable]
@@ -21,6 +23,7 @@ public class View : ScriptableObject
 	{
 		Folder,
 		Text,
-		Image
+		Image,
+		Bin
 	}
 }

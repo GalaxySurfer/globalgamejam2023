@@ -10,21 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec54324ad2f94004bbf4643b155038a9, type: 3}
-  m_Name: RootFolder
+  m_Name: Pictures
   m_EditorClassIdentifier: 
-  ViewId: 1
-  PreviousViewId: 0
-  Path: root:/
+  ViewId: 3
+  PreviousViewId: 1
+  Path: root:/Pictures
   Elements:
-  - Id: 2
-    Name: Documents
-    HasPassword: 0
-    Type: 0
-  - Id: 3
-    Name: Pictures
-    HasPassword: 0
-    Type: 0
   - Id: 0
-    Name: README.text
+    Name: birthday1997.pic
     HasPassword: 0
-    Type: 1
+    Type: 2

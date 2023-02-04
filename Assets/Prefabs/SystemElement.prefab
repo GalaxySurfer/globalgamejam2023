@@ -60,6 +60,7 @@ MonoBehaviour:
   LockedTextSprite: {fileID: 21300000, guid: bd377d056a5cc8947bad9531c95e71d1, type: 3}
   ImageSprite: {fileID: 21300000, guid: aeda69dca0288cc44a15a2653c58ac45, type: 3}
   LockedImageSprite: {fileID: 21300000, guid: 3f8a80552bc8c424aa2fa36947c0f02c, type: 3}
+  LockedBinSprite: {fileID: 21300000, guid: 037ed9e4182de8541b8d0c76b318d9ff, type: 3}
 --- !u!114 &7690724741045577779
 MonoBehaviour:
   m_ObjectHideFlags: 0

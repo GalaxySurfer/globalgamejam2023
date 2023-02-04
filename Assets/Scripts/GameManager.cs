@@ -22,11 +22,14 @@ public class GameManager : MonoBehaviour
 	private string testText;
 
 	// The id of the current view. Used with the GoBack() function.
-	private int _currentViewId;
+	private int _currentViewId = 0;
 	// The current state of the world.
 	private int _worldState;
 
 	private List<View> _viewList;
+	private List<TextFile> _textFileList;
+	private List<ImageFile> _imageFileList;
+	private List<BinFile> _binFileList;
 
 	#region Singleton
 	public static GameManager Instance;
@@ -57,7 +60,11 @@ public class GameManager : MonoBehaviour
 	private void Start()
 	{
 		_viewList = Resources.LoadAll<View>("Views").ToList();
-		View rootFolder = _viewList.First(x => x.ViewId == 0);
+		_textFileList = Resources.LoadAll<TextFile>("TextFiles").ToList();
+		_imageFileList = Resources.LoadAll<ImageFile>("ImageFiles").ToList();
+		_binFileList = Resources.LoadAll<BinFile>("BinFiles").ToList();
+
+		View rootFolder = _viewList.First(x => x.ViewId == 1);
 		RenderView(rootFolder);
 	}
 
@@ -68,7 +75,8 @@ public class GameManager : MonoBehaviour
 		{
 			Destroy(IconParent.transform.GetChild(index).gameObject);
 		}
-
+		PathField.text = view.Path;
+		_currentViewId = view.ViewId;
 		foreach (View.ViewElement element in view.Elements)
 		{
 			GameObject systemElement = Instantiate(SystemElementPrefab, IconParent.transform);
@@ -83,14 +91,19 @@ public class GameManager : MonoBehaviour
 				case View.ElementType.Image:
 					systemElement.GetComponent<SystemElement>().InitImageFileButton(element.Name, element.Id, element.HasPassword);
 					break;
+				case View.ElementType.Bin:
+					systemElement.GetComponent<SystemElement>().InitBinFileButton(element.Name, element.Id);
+					break;
 			}
 		}
 	}
 
 	public void GoBack()
 	{
-		//TODO: Use a lookup table to figure out what view should be shown given the _currentViewId
-		Debug.Log("GoBack");
+		if (_currentViewId <= 0) return;
+		int previousViewId = _viewList.First(x => x.ViewId == _currentViewId).PreviousViewId;
+		View previousView = _viewList.First(x => x.ViewId == previousViewId);
+		RenderView(previousView);
 	}
 
 	public void OpenFolder(int id, bool hasPassword)
@@ -136,6 +149,11 @@ public class GameManager : MonoBehaviour
 			GameObject window = Instantiate(ImageWindowPrefab, GameScreen.transform);
 			window.GetComponent<ImageWindow>().Init("birthday.pic", testSprite);
 		}
+	}
+
+	public void OpenBinFile(int id)
+	{
+		//TODO: Prompt Cutty
 	}
 
 	public bool CheckPassword(string password, int id)

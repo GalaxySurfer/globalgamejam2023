@@ -14,6 +14,7 @@ public class SystemElement : MonoBehaviour
     public Sprite LockedTextSprite;
     public Sprite ImageSprite;
     public Sprite LockedImageSprite;
+	public Sprite LockedBinSprite;
 
     private int _id;
 
@@ -52,4 +53,17 @@ public class SystemElement : MonoBehaviour
             GameManager.Instance.OpenImageFile(_id, hasPassword);
         });
     }
+
+	public void InitBinFileButton(string fileName, int fileId)
+	{
+		// Always has password
+		Icon.sprite = LockedBinSprite;
+		ElementText.text = fileName;
+		_id = fileId;
+		ButtonElement.onClick.RemoveAllListeners();
+		ButtonElement.onClick.AddListener(() =>
+		{
+			GameManager.Instance.OpenBinFile(_id);
+		});
+	}
 }
