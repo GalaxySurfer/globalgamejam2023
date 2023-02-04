@@ -10,13 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cdd76359228b284cba4a02b9ac3b20e, type: 3}
-  m_Name: note1
+  m_Name: note2
   m_EditorClassIdentifier: 
-  Id: 1
-  FileName: note1.text
-  Text: 'Cutty is starting to gain a personality. I quite like it. Will make budget
-    cuts so much easier to automate.
-
-
-    Though I am not sure I like its attitude
-    towards more...grey matters.'
+  Id: 2
+  FileName: note2.text
+  Text: Remember to delete this
