@@ -261,7 +261,10 @@ public class GameManager : MonoBehaviour
 		}
 		else
 		{
-			//TODO: Tie choice id to a lookup table
+			DialogueChain chain = _dialogueList.First(x => x.Id == cuttyChoiceId);
+			_currentDialogueChain = chain;
+			_currentDialogueIndex = 0;
+			NextDialogue();
 		}
 	}
 	#endregion

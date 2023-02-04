@@ -5,5 +5,6 @@ using UnityEngine;
 [Serializable, CreateAssetMenu]
 public class DialogueChain : ScriptableObject
 {
+	public int Id;
 	public List<DialogueText> Chain;
 }

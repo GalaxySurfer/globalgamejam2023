@@ -129,7 +129,11 @@ public class PasswordWindow : MonoBehaviour
 
 	private IEnumerator DoFlashErrorIcon()
 	{
-		float repeatDelay = .25f;
+		float repeatDelay = .15f;
+		ErrorImage.gameObject.SetActive(true);
+		yield return new WaitForSeconds(repeatDelay);
+		ErrorImage.gameObject.SetActive(false);
+		yield return new WaitForSeconds(repeatDelay);
 		ErrorImage.gameObject.SetActive(true);
 		yield return new WaitForSeconds(repeatDelay);
 		ErrorImage.gameObject.SetActive(false);

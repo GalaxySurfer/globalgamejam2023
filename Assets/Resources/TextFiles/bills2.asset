@@ -14,22 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 4
   FileName: bills2.text
-  Text: '21F7    Laundry
-
-    22F7    Exercise Equipment
-
-    23F7    Shopping Electronics
-
-    24F7   
-    Root Canal Treatment
-
-    25F7    Chemicals
-
-    26F7    Photo Shooting
-
-    27F7   
-    Phone Plan
-
-    28F7    Laptop Computer
-
-    29F7    Spare Computer'
+  Text: "---------------------------------\r\n|   #    |         ITEM         |\r\n|--------|-----------------------\r\n|21F7   
+    | Laundry              |\r\n|--------------------------------\r\n|22F7    | Exercise
+    Equipment   |\r\n|--------------------------------\r\n|23F7    | Shopping Electronics
+    | \r\n|--------------------------------\r\n|24F7    | Root Canal Treatment |\r\n|--------------------------------\r\n|25F7   
+    | Baking Soda          |\r\n|--------------------------------\r\n|26F7    | Photo
+    Shooting       |\r\n|--------------------------------\r\n|27F7    | Phone Plan          
+    |\r\n|--------------------------------\r\n|28F7    | Laptop Computer      |\r\n|--------------------------------\r\n|29F7   
+    | Spare Computer       |\r\n|--------------------------------"
