@@ -14,14 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 6
   FileName: LaundryMaterials.text
-  Text: 'Barrel
+  Text: 'potassium hydroxide
 
-    Magazine
+    sodium hydroxide
 
-    Bullets
+    alkylbenzene sulfonate
 
-    Ammunition
+    sodium
+    carbonate
 
-    TNT
+    sodium Laureth sulfate
 
-    Explosives'
+    Sulfonic Acid
+
+    Tetrasodium EDTA
+
+    Zinc
+    Oxide
+
+    Benzyl Alcohol'
