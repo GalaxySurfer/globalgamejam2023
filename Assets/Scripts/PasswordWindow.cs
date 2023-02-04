@@ -2,6 +2,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static PasswordLookup;
 using static View;
 
 public class PasswordWindow : MonoBehaviour
@@ -29,6 +30,8 @@ public class PasswordWindow : MonoBehaviour
 			else
 			{
 				GameManager.Instance.OpenFolder(_id, false);
+				PasswordPair pair = GameManager.Instance.GetPasswordPair(_id, ElementType.Folder);
+				if(pair != null) GameManager.Instance.SetWorldState(pair.NewWorldState);
 				Destroy(gameObject);
 			}
 		});
@@ -50,6 +53,8 @@ public class PasswordWindow : MonoBehaviour
 			else
 			{
 				GameManager.Instance.OpenTextFile(_id, false);
+				PasswordPair pair = GameManager.Instance.GetPasswordPair(_id, ElementType.Text);
+				if (pair != null) GameManager.Instance.SetWorldState(pair.NewWorldState);
 				Destroy(gameObject);
 			}
 		});
@@ -71,6 +76,8 @@ public class PasswordWindow : MonoBehaviour
 			else
 			{
 				GameManager.Instance.OpenImageFile(_id, false);
+				PasswordPair pair = GameManager.Instance.GetPasswordPair(_id, ElementType.Image);
+				if (pair != null) GameManager.Instance.SetWorldState(pair.NewWorldState);
 				Destroy(gameObject);
 			}
 		});
@@ -91,7 +98,8 @@ public class PasswordWindow : MonoBehaviour
 			}
 			else
 			{
-				GameManager.Instance.SetWorldStateFromBin(_id);
+				PasswordPair pair = GameManager.Instance.GetPasswordPair(_id, ElementType.Bin);
+				if (pair != null) GameManager.Instance.SetWorldState(pair.NewWorldState);
 				Destroy(gameObject);
 			}
 		});
