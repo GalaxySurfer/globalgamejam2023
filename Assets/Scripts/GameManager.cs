@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
 		if (newState != WorldState)
 		{
 			WorldState = newState;
+			Debug.Log($"New WorldState: {WorldState}");
 			EvaluateWorldState();
 		}
 	}

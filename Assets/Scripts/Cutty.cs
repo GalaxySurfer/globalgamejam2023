@@ -30,6 +30,8 @@ public class Cutty : MonoBehaviour
 		Reaction reaction = _reactionTable.ReactionList.FirstOrDefault(x => x.WorldState == worldState);
 		if (reaction != null)
 		{
+			ToggleSpeechBubble(true);
+			ToggleBlockScreen(true);
 			GameManager.Instance.StartNewDialogueChain(reaction.DialogueChainId);
 			GameManager.Instance.NextDialogueText();
 		}
