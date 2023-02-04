@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconParent: {fileID: 1217802996}
   GameScreen: {fileID: 878967515}
+  CuttyScreen: {fileID: 0}
   PathField: {fileID: 1407827752}
   SystemElementPrefab: {fileID: 4081360082715368691, guid: 419e9d0ba95a0ae4d8ac53b33c0264f5, type: 3}
   TextWindowPrefab: {fileID: 433938566796521822, guid: 0caec5f14dd8ac64da8571f786de6f1d, type: 3}
@@ -252,6 +253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 258083532}
+  - component: {fileID: 258083533}
   m_Layer: 5
   m_Name: CuttyScreen
   m_TagString: Untagged
@@ -280,6 +282,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &258083533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258083531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44611c375fa7a7740a2b9b46a6621662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CuttyBackground: {fileID: 458395690}
+  CuttyParent: {fileID: 1144885739}
+  CuttyImage: {fileID: 1334874835}
+  SpeechBubble: {fileID: 1271409618}
+  SpeechBubbleText: {fileID: 1717257518}
+  ChoiceParent: {fileID: 1717257516}
+  ChoicePrefab: {fileID: 682894168506537603, guid: c06c8def6af63cc42a479c3966f5ecf6, type: 3}
 --- !u!1 &284674335
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,7 +428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &458395689
 RectTransform:
   m_ObjectHideFlags: 0
@@ -887,7 +908,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1144885740}
   m_Layer: 5
-  m_Name: Cutty
+  m_Name: CuttyParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1196,7 +1217,7 @@ GameObject:
   - component: {fileID: 1334874836}
   - component: {fileID: 1334874835}
   m_Layer: 5
-  m_Name: Cutty
+  m_Name: CuttyImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

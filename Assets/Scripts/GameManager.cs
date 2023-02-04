@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 	[Header("Setup")]
 	public GameObject IconParent;
 	public GameObject GameScreen;
+	public Cutty CuttyScreen;
 	public TMP_Text PathField;
 	[Header("Prefabs"), Space(5)]
 	public GameObject SystemElementPrefab;
@@ -26,6 +27,8 @@ public class GameManager : MonoBehaviour
 
 	// The id of the current view. Used with the GoBack() function.
 	private int _currentViewId = 0;
+	private DialogueChain _currentDialogueChain = null;
+	private int _currentDialogueIndex = 0;
 
 	// The current state of the world.
 	public int WorldState { get; private set; }
@@ -78,25 +81,24 @@ public class GameManager : MonoBehaviour
 
 		_passwords = Resources.LoadAll<PasswordLookup>("")[0];
 
+		CuttyScreen.OnChoice += OnCuttyChoice;
+
 		View rootFolder = _viewList.First(x => x.ViewId == 1);
 		RenderView(rootFolder);
 	}
 
 	public void SetWorldState(int newState)
 	{
-		WorldState = newState;
-		EvaluateWorldState();
-	}
-
-	public void SetWorldStateFromBin(int binFileId)
-	{
-		WorldState = _binFileList.First(x => x.Id == binFileId).NewWorldState;
-		EvaluateWorldState();
+		if (newState != WorldState)
+		{
+			WorldState = newState;
+			EvaluateWorldState();
+		}
 	}
 
 	private void EvaluateWorldState()
 	{
-		if(_worldStateActions.ContainsKey(WorldState))
+		if (_worldStateActions.ContainsKey(WorldState))
 		{
 			_worldStateActions[WorldState]?.Invoke();
 		}
@@ -132,7 +134,7 @@ public class GameManager : MonoBehaviour
 			}
 		}
 	}
-	
+
 	public void GoBack()
 	{
 		if (_currentViewId <= 0) return;
@@ -166,7 +168,6 @@ public class GameManager : MonoBehaviour
 
 	public void OpenTextFile(int id, bool hasPassword)
 	{
-		//TODO: Make a setup that lets us find a text asset file given an id.
 		if (hasPassword)
 		{
 			PasswordPair pair = GetPasswordPair(id, ElementType.Text);
@@ -228,14 +229,42 @@ public class GameManager : MonoBehaviour
 	#endregion
 
 	#region Cutty
-	public void StartDialogue(int id)
+	public void NextDialogue()
 	{
+		if (_currentDialogueIndex > _currentDialogueChain.Chain.Count)
+		{
+			// end dialogue
+			CuttyScreen.SetSpeechBubbleText("");
+			CuttyScreen.ToggleSpeechBubble(false);
+			CuttyScreen.ToggleBlockScreen(false);
+		}
+		else
+		{
+			string text = _currentDialogueChain.Chain[_currentDialogueIndex].Text;
+			List<DialogueText.Choice> choices = _currentDialogueChain.Chain[_currentDialogueIndex].Choices;
+			CuttyScreen.SetSpeechBubbleText(text);
+			CuttyScreen.SetChoices(choices);
+		}
+	}
 
+	public void OnCuttyChoice(int cuttyChoiceId)
+	{
+		Debug.Log($"Cutty Choice Id: {cuttyChoiceId}");
+		if (cuttyChoiceId == -1)
+		{
+			// Go to next dialogue
+			_currentDialogueIndex += 1;
+			NextDialogue();
+		}
+		else
+		{
+			//TODO: Tie choice id to a lookup table
+		}
 	}
 	#endregion
 
 	#region Utility
-	private PasswordPair GetPasswordPair(int id, ElementType type)
+	public PasswordPair GetPasswordPair(int id, ElementType type)
 	{
 		PasswordPair pair = _passwords.PasswordList.FirstOrDefault(x => x.Id == id && x.Type == type);
 		return pair;
