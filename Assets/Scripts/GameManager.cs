@@ -242,7 +242,9 @@ public class GameManager : MonoBehaviour
 		{
 			string text = _currentDialogueChain.Chain[_currentDialogueIndex].Text;
 			List<DialogueText.Choice> choices = _currentDialogueChain.Chain[_currentDialogueIndex].Choices;
+			Sprite cuttySprite = _currentDialogueChain.Chain[_currentDialogueIndex].CuttyImage;
 			CuttyScreen.SetSpeechBubbleText(text);
+			CuttyScreen.SetCuttyImage(cuttySprite);
 			CuttyScreen.SetChoices(choices);
 		}
 	}

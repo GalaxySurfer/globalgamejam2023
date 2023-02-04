@@ -7,6 +7,7 @@ public class DialogueText : ScriptableObject
 {
 	[TextArea]
 	public string Text;
+	public Sprite CuttyImage;
 	public List<Choice> Choices;
 
 	[Serializable]

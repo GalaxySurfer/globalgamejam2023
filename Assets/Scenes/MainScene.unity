@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconParent: {fileID: 1217802996}
   GameScreen: {fileID: 878967515}
-  CuttyScreen: {fileID: 0}
+  CuttyScreen: {fileID: 258083533}
   PathField: {fileID: 1407827752}
   SystemElementPrefab: {fileID: 4081360082715368691, guid: 419e9d0ba95a0ae4d8ac53b33c0264f5, type: 3}
   TextWindowPrefab: {fileID: 433938566796521822, guid: 0caec5f14dd8ac64da8571f786de6f1d, type: 3}

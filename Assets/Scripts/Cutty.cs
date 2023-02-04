@@ -36,11 +36,8 @@ public class Cutty : MonoBehaviour
 		ToggleBlockScreen(false);
 	}
 
-	public void SetSpeechBubbleText(string text)
-	{
-		SpeechBubbleText.text = text;
-	}
-
+	public void SetSpeechBubbleText(string text) => SpeechBubbleText.text = text;
+	public void SetCuttyImage(Sprite sprite) => CuttyImage.sprite = sprite;
 	public void SetChoices(IEnumerable<Choice> choices)
 	{
 		// Clear parent first
