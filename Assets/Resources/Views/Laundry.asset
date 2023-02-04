@@ -20,15 +20,39 @@ MonoBehaviour:
     Name: Laundromat.pic
     HasPassword: 0
     Type: 2
+    OnOpen:
+      m_PersistentCalls:
+        m_Calls: []
   - Id: 2
     Name: Dollarbill.pic
     HasPassword: 0
     Type: 2
+    OnOpen:
+      m_PersistentCalls:
+        m_Calls: []
   - Id: 5
     Name: Laundrylist.text
     HasPassword: 0
     Type: 1
+    OnOpen:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 831a6b186bd6fb14aa0a17820a24a326, type: 2}
+          m_TargetAssemblyTypeName: 
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - Id: 6
     Name: LaundryMaterials.text
     HasPassword: 0
     Type: 1
+    OnOpen:
+      m_PersistentCalls:
+        m_Calls: []

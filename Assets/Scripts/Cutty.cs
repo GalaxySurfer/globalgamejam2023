@@ -1,15 +1,14 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
+using static CuttyReactionTable;
 using static DialogueText;
 
 public class Cutty : MonoBehaviour
 {
-	public Action<int> OnChoice;
-
 	public Image CuttyBackground;
 	public GameObject CuttyParent;
 	public Image CuttyImage;
@@ -17,6 +16,24 @@ public class Cutty : MonoBehaviour
 	public TMP_Text SpeechBubbleText;
 	public GameObject ChoiceParent;
 	public GameObject ChoicePrefab;
+
+	private CuttyReactionTable _reactionTable;
+
+	private void Start()
+	{
+		_reactionTable = Resources.LoadAll<CuttyReactionTable>("")[0];
+	}
+
+	public void EvaluateWorldState()
+	{
+		int worldState = GameManager.Instance.WorldState;
+		Reaction reaction = _reactionTable.ReactionList.FirstOrDefault(x => x.WorldState == worldState);
+		if (reaction != null)
+		{
+			GameManager.Instance.StartNewDialogueChain(reaction.DialogueChainId);
+			GameManager.Instance.NextDialogueText();
+		}
+	}
 
 	public void ToggleCutty(bool state) => CuttyParent.gameObject.SetActive(state);
 	public void ToggleSpeechBubble(bool state) => SpeechBubble.gameObject.SetActive(state);
@@ -49,10 +66,10 @@ public class Cutty : MonoBehaviour
 		foreach (Choice choice in choices)
 		{
 			GameObject button = Instantiate(ChoicePrefab, ChoiceParent.transform);
-			int dereferencedId = choice.ChoiceId;
-			button.GetComponent<Button>().onClick.AddListener(() =>
+			UnityEvent dereferencedEvent = choice.OnChoice;
+			button.GetComponentInChildren<Button>().onClick.AddListener(() =>
 			{
-				OnChoice?.Invoke(dereferencedId);
+				dereferencedEvent?.Invoke();
 			});
 			button.GetComponentInChildren<TMP_Text>().text = choice.ChoiceName;
 		}

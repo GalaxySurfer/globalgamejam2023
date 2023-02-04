@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [Serializable, CreateAssetMenu]
 public class View : ScriptableObject
@@ -11,12 +12,13 @@ public class View : ScriptableObject
 	public List<ViewElement> Elements;
 
 	[Serializable]
-	public struct ViewElement
+	public class ViewElement
 	{
 		public int Id;
 		public string Name;
 		public bool HasPassword;
 		public ElementType Type;
+		public UnityEvent OnOpen;
 	}
 	
 	public enum ElementType

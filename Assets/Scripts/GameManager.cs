@@ -9,6 +9,7 @@ using static View;
 public class GameManager : MonoBehaviour
 {
 	[Header("Setup")]
+	public int EndWorldState;
 	public GameObject IconParent;
 	public GameObject GameScreen;
 	public Cutty CuttyScreen;
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
 	// The id of the current view. Used with the GoBack() function.
 	private int _currentViewId = 0;
 	private DialogueChain _currentDialogueChain = null;
-	private int _currentDialogueIndex = 0;
+	private int _currentDialogueIndex = -1;
 
 	// The current state of the world.
 	public int WorldState { get; private set; }
@@ -38,12 +39,9 @@ public class GameManager : MonoBehaviour
 	private List<ImageFile> _imageFileList;
 	private List<BinFile> _binFileList;
 	private List<DialogueChain> _dialogueList;
-	private PasswordLookup _passwords;
 
-	private readonly Dictionary<int, Action> _worldStateActions = new Dictionary<int, Action>()
-	{
-		{ 2, () => {} }
-	};
+	private PasswordLookup _passwords;
+	private HideTable _hideTable;
 
 	#region Singleton
 	public static GameManager Instance;
@@ -80,8 +78,8 @@ public class GameManager : MonoBehaviour
 		_dialogueList = Resources.LoadAll<DialogueChain>("DialogueChains").ToList();
 
 		_passwords = Resources.LoadAll<PasswordLookup>("")[0];
+		_hideTable = Resources.LoadAll<HideTable>("")[0];
 
-		CuttyScreen.OnChoice += OnCuttyChoice;
 		CuttyScreen.ToggleCutty(false);
 
 		View rootFolder = _viewList.First(x => x.ViewId == 1);
@@ -90,6 +88,7 @@ public class GameManager : MonoBehaviour
 
 	public void SetWorldState(int newState)
 	{
+		if (newState < 0) return;
 		if (newState != WorldState)
 		{
 			WorldState = newState;
@@ -99,13 +98,24 @@ public class GameManager : MonoBehaviour
 
 	private void EvaluateWorldState()
 	{
-		if (_worldStateActions.ContainsKey(WorldState))
+		if (WorldState >= EndWorldState)
 		{
-			_worldStateActions[WorldState]?.Invoke();
+			//TODO: End game
+		}
+		else
+		{
+			CuttyScreen.EvaluateWorldState();
 		}
 	}
 
 	#region UI
+	// Re-Render the existing view.
+	public void RefreshView()
+	{
+		View currentView = _viewList.First(x => x.ViewId == _currentViewId);
+		RenderView(currentView);
+	}
+
 	private void RenderView(View view)
 	{
 		// Clear parent first
@@ -115,23 +125,28 @@ public class GameManager : MonoBehaviour
 		}
 		PathField.text = view.Path;
 		_currentViewId = view.ViewId;
-		foreach (View.ViewElement element in view.Elements)
+		foreach (ViewElement element in view.Elements)
 		{
-			GameObject systemElement = Instantiate(SystemElementPrefab, IconParent.transform);
-			switch (element.Type)
+			// If this is null, then we have to render it, not hide it.
+			if (_hideTable.HideList.FirstOrDefault(x => x.WorldState <= WorldState && x.SystemElementId == element.Id && x.Type == element.Type) == null)
 			{
-				case View.ElementType.Folder:
-					systemElement.GetComponent<SystemElement>().InitFolderButton(element.Name, element.Id, element.HasPassword);
-					break;
-				case View.ElementType.Text:
-					systemElement.GetComponent<SystemElement>().InitTextFileButton(element.Name, element.Id, element.HasPassword);
-					break;
-				case View.ElementType.Image:
-					systemElement.GetComponent<SystemElement>().InitImageFileButton(element.Name, element.Id, element.HasPassword);
-					break;
-				case View.ElementType.Bin:
-					systemElement.GetComponent<SystemElement>().InitBinFileButton(element.Name, element.Id);
-					break;
+				GameObject systemElement = Instantiate(SystemElementPrefab, IconParent.transform);
+				SystemElement elementComp = systemElement.GetComponent<SystemElement>();
+				switch (element.Type)
+				{
+					case ElementType.Folder:
+						elementComp.InitFolderButton(element.Name, element.Id, element.HasPassword);
+						break;
+					case ElementType.Text:
+						elementComp.InitTextFileButton(element.Name, element.Id, element.HasPassword);
+						break;
+					case ElementType.Image:
+						elementComp.InitImageFileButton(element.Name, element.Id, element.HasPassword);
+						break;
+					case ElementType.Bin:
+						elementComp.InitBinFileButton(element.Name, element.Id);
+						break;
+				}
 			}
 		}
 	}
@@ -186,6 +201,8 @@ public class GameManager : MonoBehaviour
 		{
 			GameObject window = Instantiate(TextWindowPrefab, GameScreen.transform);
 			TextFile file = _textFileList.First(x => x.Id == id);
+			View view = _viewList.First(x => x.Elements.FirstOrDefault(y => y.Id == id && y.Type == ElementType.Text) != null);
+			view.Elements.First(x => x.Id == id).OnOpen?.Invoke();
 			window.GetComponent<TextWindow>().Init(file.FileName, file.Text);
 		}
 	}
@@ -230,9 +247,10 @@ public class GameManager : MonoBehaviour
 	#endregion
 
 	#region Cutty
-	public void NextDialogue()
+	public void NextDialogueText()
 	{
-		if (_currentDialogueIndex > _currentDialogueChain.Chain.Count)
+		_currentDialogueIndex += 1;
+		if (_currentDialogueIndex >= _currentDialogueChain.Chain.Count)
 		{
 			// end dialogue
 			CuttyScreen.SetSpeechBubbleText("");
@@ -250,22 +268,11 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	public void OnCuttyChoice(int cuttyChoiceId)
+	public void StartNewDialogueChain(int dialogueChainId)
 	{
-		Debug.Log($"Cutty Choice Id: {cuttyChoiceId}");
-		if (cuttyChoiceId == -1)
-		{
-			// Go to next dialogue
-			_currentDialogueIndex += 1;
-			NextDialogue();
-		}
-		else
-		{
-			DialogueChain chain = _dialogueList.First(x => x.Id == cuttyChoiceId);
-			_currentDialogueChain = chain;
-			_currentDialogueIndex = 0;
-			NextDialogue();
-		}
+		DialogueChain chain = _dialogueList.First(x => x.Id == dialogueChainId);
+		_currentDialogueChain = chain;
+		_currentDialogueIndex = -1;
 	}
 	#endregion
 

@@ -16,5 +16,19 @@ MonoBehaviour:
     should know this Sarah.
   CuttyImage: {fileID: 21300000, guid: a4882ab9dd90247919cacb6bd6ea6317, type: 3}
   Choices:
-  - ChoiceId: -1
-    ChoiceName: "\u22D9"
+  - ChoiceName: ->
+    OnChoice:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 831a6b186bd6fb14aa0a17820a24a326, type: 2}
+          m_TargetAssemblyTypeName: ScriptableObjectManager, Assembly-CSharp
+          m_MethodName: NextDialogueText
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

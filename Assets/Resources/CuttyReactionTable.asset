@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be8ec27d053d5854d9615fc2b557c41a, type: 3}
-  m_Name: 25F7
+  m_Script: {fileID: 11500000, guid: 55094ae485898fb4daa9ee84c76113f7, type: 3}
+  m_Name: CuttyReactionTable
   m_EditorClassIdentifier: 
-  Id: 0
-  NewWorldState: 5
+  ReactionList:
+  - WorldState: 1
+    DialogueChainId: 0

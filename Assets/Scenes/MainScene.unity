@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f1500499012db4993f4046f2cf2b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EndWorldState: 5
   IconParent: {fileID: 1217802996}
   GameScreen: {fileID: 878967515}
   CuttyScreen: {fileID: 258083533}
@@ -299,7 +300,7 @@ MonoBehaviour:
   CuttyImage: {fileID: 1334874835}
   SpeechBubble: {fileID: 1271409618}
   SpeechBubbleText: {fileID: 1717257518}
-  ChoiceParent: {fileID: 1717257516}
+  ChoiceParent: {fileID: 133426458}
   ChoicePrefab: {fileID: 682894168506537603, guid: c06c8def6af63cc42a479c3966f5ecf6, type: 3}
 --- !u!1 &284674335
 GameObject:

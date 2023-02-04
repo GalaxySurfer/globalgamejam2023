@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [Serializable, CreateAssetMenu]
 public class DialogueText : ScriptableObject
@@ -13,7 +14,7 @@ public class DialogueText : ScriptableObject
 	[Serializable]
 	public class Choice
 	{
-		public int ChoiceId;
 		public string ChoiceName;
+		public UnityEvent OnChoice;
 	}
 }
