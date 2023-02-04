@@ -15,7 +15,7 @@ public class PasswordWindow : MonoBehaviour
 
 	public void InitPasswordFolder(string hint, int id)
 	{
-		HintText.text = hint;
+		HintText.text = GameManager.Instance.WorldState > 0 ? hint : "";
 		_id = id;
 		ErrorImage.gameObject.SetActive(false);
 		OkButton.onClick.AddListener(() =>
@@ -36,7 +36,7 @@ public class PasswordWindow : MonoBehaviour
 
 	public void InitPasswordText(string hint, int id)
 	{
-		HintText.text = hint;
+		HintText.text = GameManager.Instance.WorldState > 0 ? hint : "";
 		_id = id;
 		ErrorImage.gameObject.SetActive(false);
 		OkButton.onClick.AddListener(() =>
@@ -57,7 +57,7 @@ public class PasswordWindow : MonoBehaviour
 
 	public void InitPasswordImage(string hint, int id)
 	{
-		HintText.text = hint;
+		HintText.text = GameManager.Instance.WorldState > 0 ? hint : "";
 		_id = id;
 		ErrorImage.gameObject.SetActive(false);
 		OkButton.onClick.AddListener(() =>
@@ -78,7 +78,7 @@ public class PasswordWindow : MonoBehaviour
 
 	public void InitPasswordBin(string hint, int id)
 	{
-		HintText.text = hint;
+		HintText.text = GameManager.Instance.WorldState > 0 ? hint : "";
 		_id = id;
 		ErrorImage.gameObject.SetActive(false);
 		OkButton.onClick.AddListener(() =>
@@ -91,7 +91,7 @@ public class PasswordWindow : MonoBehaviour
 			}
 			else
 			{
-				GameManager.Instance.OpenImageFile(_id, false);
+				GameManager.Instance.SetWorldStateFromBin(_id);
 				Destroy(gameObject);
 			}
 		});

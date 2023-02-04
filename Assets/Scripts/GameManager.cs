@@ -26,14 +26,20 @@ public class GameManager : MonoBehaviour
 
 	// The id of the current view. Used with the GoBack() function.
 	private int _currentViewId = 0;
+
 	// The current state of the world.
-	private int _worldState;
+	public int WorldState { get; private set; }
 
 	private List<View> _viewList;
 	private List<TextFile> _textFileList;
 	private List<ImageFile> _imageFileList;
 	private List<BinFile> _binFileList;
 	private PasswordLookup _passwords;
+
+	private readonly Dictionary<int, Action> _worldStateActions = new Dictionary<int, Action>()
+	{
+		{ 2, () => {} }
+	};
 
 	#region Singleton
 	public static GameManager Instance;
@@ -73,7 +79,28 @@ public class GameManager : MonoBehaviour
 		RenderView(rootFolder);
 	}
 
-	public void RenderView(View view)
+	public void SetWorldState(int newState)
+	{
+		WorldState = newState;
+		EvaluateWorldState();
+	}
+
+	public void SetWorldStateFromBin(int binFileId)
+	{
+		WorldState = _binFileList.First(x => x.Id == binFileId).NewWorldState;
+		EvaluateWorldState();
+	}
+
+	private void EvaluateWorldState()
+	{
+		if(_worldStateActions.ContainsKey(WorldState))
+		{
+			_worldStateActions[WorldState]?.Invoke();
+		}
+	}
+
+	#region UI
+	private void RenderView(View view)
 	{
 		// Clear parent first
 		for (int index = IconParent.transform.childCount - 1; index >= 0; index--)
@@ -102,7 +129,7 @@ public class GameManager : MonoBehaviour
 			}
 		}
 	}
-
+	
 	public void GoBack()
 	{
 		if (_currentViewId <= 0) return;
@@ -195,7 +222,16 @@ public class GameManager : MonoBehaviour
 			window.GetComponent<PasswordWindow>().InitPasswordBin(pair.Hint, id);
 		}
 	}
+	#endregion
 
+	#region Cutty
+	public void StartDialogue(int id)
+	{
+
+	}
+	#endregion
+
+	#region Utility
 	private PasswordPair GetPasswordPair(int id, ElementType type)
 	{
 		PasswordPair pair = _passwords.PasswordList.FirstOrDefault(x => x.Id == id && x.Type == type);
@@ -204,4 +240,5 @@ public class GameManager : MonoBehaviour
 
 	public bool CheckPassword(int id, string password, ElementType type)
 		=> _passwords.PasswordList.FirstOrDefault(x => x.Id == id && x.Password == password && x.Type == type) != null;
+	#endregion
 }
