@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cdd76359228b284cba4a02b9ac3b20e, type: 3}
+  m_Name: itinerary_morroc_1998
+  m_EditorClassIdentifier: 
+  Id: 10
+  FileName: itinerary_morroc_1998.text
+  Text: '---------------------------------
+
+    |  TIME  |      ITINERARY      
+    |
+
+    |--------|----------------------|
+
+    | 00:30  | Fly Out             
+    |
+
+    |-------------------------------|
+
+    | 07:45  | Find Limo           
+    |
+
+    |-------------------------------|
+
+    | 08:25  | Arrive              
+    |
+
+    |-------------------------------|
+
+    | 09:40  | Meet Personal Trainer|
+
+    |-------------------------------|
+
+    |
+    11:40  | Swim with the Fishes |
+
+    |-------------------------------|
+
+    |
+    14:50  | Go Shopping          |
+
+    |-------------------------------|
+
+    |
+    18:30  | Limo Back            |
+
+    |-------------------------------|
+
+    |
+    22:30  | Receive Gift         |
+
+    |-------------------------------|
+
+    |           
+    SLEEP              |
+
+    |-------------------------------|
+
+    | 06:40  |
+    Eat Breakfast        |
+
+    |-------------------------------|
+
+    | 09:30 
+    | Meet with Trainer    |
+
+    |-------------------------------|
+
+    | 11:25 
+    | Lunch                |
+
+    |-------------------------------|
+
+    | 14:55 
+    | Buy Hardware         |
+
+    |-------------------------------|
+
+    | 16:45 
+    | Hiking               |
+
+    |-------------------------------|
+
+    | 18:00 
+    | Catch Flight Home    |
+
+    |-------------------------------|'

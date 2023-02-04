@@ -33,7 +33,7 @@ public class PasswordWindow : MonoBehaviour
 			{
 				GameManager.Instance.OpenFolder(_id, false);
 				PasswordPair pair = GameManager.Instance.GetPasswordPair(_id, ElementType.Folder);
-				if(pair != null) GameManager.Instance.SetWorldState(pair.NewWorldState);
+				if(pair != null && pair.NewWorldState > -1) GameManager.Instance.SetWorldState(pair.NewWorldState);
 				Destroy(gameObject);
 			}
 		});
@@ -58,7 +58,7 @@ public class PasswordWindow : MonoBehaviour
 			{
 				GameManager.Instance.OpenTextFile(_id, false);
 				PasswordPair pair = GameManager.Instance.GetPasswordPair(_id, ElementType.Text);
-				if (pair != null) GameManager.Instance.SetWorldState(pair.NewWorldState);
+				if (pair != null && pair.NewWorldState > -1) GameManager.Instance.SetWorldState(pair.NewWorldState);
 				Destroy(gameObject);
 			}
 		});
@@ -83,7 +83,7 @@ public class PasswordWindow : MonoBehaviour
 			{
 				GameManager.Instance.OpenImageFile(_id, false);
 				PasswordPair pair = GameManager.Instance.GetPasswordPair(_id, ElementType.Image);
-				if (pair != null) GameManager.Instance.SetWorldState(pair.NewWorldState);
+				if (pair != null && pair.NewWorldState > -1) GameManager.Instance.SetWorldState(pair.NewWorldState);
 				Destroy(gameObject);
 			}
 		});
@@ -107,7 +107,7 @@ public class PasswordWindow : MonoBehaviour
 			else
 			{
 				PasswordPair pair = GameManager.Instance.GetPasswordPair(_id, ElementType.Bin);
-				if (pair != null) GameManager.Instance.SetWorldState(pair.NewWorldState);
+				if (pair != null && pair.NewWorldState > -1) GameManager.Instance.SetWorldState(pair.NewWorldState);
 				Destroy(gameObject);
 			}
 		});
@@ -117,11 +117,11 @@ public class PasswordWindow : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Escape))
+		if (Input.GetKeyDown(KeyCode.Escape) && GameManager.Instance.CuttyScreen.CuttyBackground.isActiveAndEnabled == false)
 		{
 			Cancel();
 		}
-		else if (Input.GetKeyUp(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
+		else if (Input.GetKeyUp(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return) && GameManager.Instance.CuttyScreen.CuttyBackground.isActiveAndEnabled == false)
 		{
 			OkButton.onClick.Invoke();
 		}

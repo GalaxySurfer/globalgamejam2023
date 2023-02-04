@@ -10,30 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec54324ad2f94004bbf4643b155038a9, type: 3}
-  m_Name: ExercisingPlans
+  m_Name: Vacation
   m_EditorClassIdentifier: 
-  ViewId: 7
-  PreviousViewId: 5
-  Path: root:/Documents/Files/Exercising Plans
+  ViewId: 9
+  PreviousViewId: 7
+  Path: root:/.../Files/Exercising Plans/Vacation
   Elements:
-  - Id: 7
-    Name: Plans1.text
+  - Id: 10
+    Name: itinerary_morroc_1998.text
     HasPassword: 0
     Type: 1
-    OnOpen:
-      m_PersistentCalls:
-        m_Calls: []
-  - Id: 8
-    Name: Plans2.text
-    HasPassword: 0
-    Type: 1
-    OnOpen:
-      m_PersistentCalls:
-        m_Calls: []
-  - Id: 9
-    Name: Vacation
-    HasPassword: 1
-    Type: 0
     OnOpen:
       m_PersistentCalls:
         m_Calls: []
