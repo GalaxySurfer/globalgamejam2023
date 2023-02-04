@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: The password to..did you hit your head? I'll turn on password hints. You
     should know this Sarah.
-  Choices: []
+  CuttyImage: {fileID: 21300000, guid: a4882ab9dd90247919cacb6bd6ea6317, type: 3}
+  Choices:
+  - ChoiceId: -1
+    ChoiceName: "\u22D9"

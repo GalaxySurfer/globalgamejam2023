@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93c7bebe0cdd8984fa940b7da868ac87, type: 3}
-  m_Name: FirstCuttyDialogue2
+  m_Name: FirstCuttyDialogue4
   m_EditorClassIdentifier: 
-  Text: Just Okay? Alright. Anything I can help you with?
-  CuttyImage: {fileID: 21300000, guid: f7bc5927843314c7a8c4ed6cbbeaaf3d, type: 3}
+  Text: Go ahead.
+  CuttyImage: {fileID: 21300000, guid: 575639ae1168e40b4a5930a7d6501d5b, type: 3}
   Choices:
   - ChoiceId: -1
-    ChoiceName: Password to Files
+    ChoiceName: "\u22D9"
