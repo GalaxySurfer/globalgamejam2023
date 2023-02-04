@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4081360082679737809
+--- !u!1 &4081360082715368691
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,65 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4081360082679737808}
-  - component: {fileID: 4081360082679737815}
-  - component: {fileID: 4081360082679737813}
+  - component: {fileID: 4081360082715368690}
+  - component: {fileID: 4203034315307374070}
+  - component: {fileID: 7690724741045577779}
   m_Layer: 5
-  m_Name: Button
+  m_Name: SystemElement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &4081360082679737808
+--- !u!224 &4081360082715368690
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4081360082679737809}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_GameObject: {fileID: 4081360082715368691}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4081360082715368690}
-  m_RootOrder: 2
+  m_Children:
+  - {fileID: 4081360084604064548}
+  - {fileID: 4081360082780520175}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4081360082679737815
+--- !u!114 &4203034315307374070
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4081360082679737809}
+  m_GameObject: {fileID: 4081360082715368691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e18dead5197194ead7544ea64d490e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ButtonElement: {fileID: 7690724741045577779}
+  Icon: {fileID: 4081360082780520174}
+  ElementText: {fileID: 4081360084604064571}
+  FolderSprite: {fileID: 21300000, guid: 32ab141ed320c5d43abeeaea63cf3e5a, type: 3}
+  LockedFolderSprite: {fileID: 21300000, guid: 9a4a3065fca8c6b41b75d5302e159c29, type: 3}
+  TextSprite: {fileID: 21300000, guid: 767ddd668deb6e240be162ee7142e589, type: 3}
+  LockedTextSprite: {fileID: 21300000, guid: bd377d056a5cc8947bad9531c95e71d1, type: 3}
+  ImageSprite: {fileID: 21300000, guid: aeda69dca0288cc44a15a2653c58ac45, type: 3}
+  LockedImageSprite: {fileID: 21300000, guid: 3f8a80552bc8c424aa2fa36947c0f02c, type: 3}
+--- !u!114 &7690724741045577779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4081360082715368691}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -77,75 +100,10 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 4081360082780520174}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!222 &4081360082679737813
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4081360082679737809}
-  m_CullTransparentMesh: 1
---- !u!1 &4081360082715368691
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4081360082715368690}
-  - component: {fileID: 4203034315307374070}
-  m_Layer: 5
-  m_Name: SystemElement
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &4081360082715368690
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4081360082715368691}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4081360084604064548}
-  - {fileID: 4081360082780520175}
-  - {fileID: 4081360082679737808}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4203034315307374070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4081360082715368691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07e18dead5197194ead7544ea64d490e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ButtonElement: {fileID: 4081360082679737815}
-  Icon: {fileID: 4081360082780520174}
-  ElementText: {fileID: 4081360084604064571}
-  FolderSprite: {fileID: 21300000, guid: 32ab141ed320c5d43abeeaea63cf3e5a, type: 3}
-  TextSprite: {fileID: 21300000, guid: 767ddd668deb6e240be162ee7142e589, type: 3}
-  ImageSprite: {fileID: 21300000, guid: aeda69dca0288cc44a15a2653c58ac45, type: 3}
 --- !u!1 &4081360082780520168
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,8 +246,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: folder
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 552248a6f83f93241a2995b3a98bdfe2, type: 2}
+  m_sharedMaterial: {fileID: 6171806157359398754, guid: 552248a6f83f93241a2995b3a98bdfe2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
