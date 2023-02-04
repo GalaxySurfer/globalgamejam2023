@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
 		_passwords = Resources.LoadAll<PasswordLookup>("")[0];
 
 		CuttyScreen.OnChoice += OnCuttyChoice;
+		CuttyScreen.ToggleCutty(false);
 
 		View rootFolder = _viewList.First(x => x.ViewId == 1);
 		RenderView(rootFolder);

@@ -19,6 +19,8 @@ public class PasswordWindow : MonoBehaviour
 		HintText.text = GameManager.Instance.WorldState > 0 ? hint : "";
 		_id = id;
 		ErrorImage.gameObject.SetActive(false);
+		InputField.Select();
+		InputField.ActivateInputField();
 		OkButton.onClick.AddListener(() =>
 		{
 			bool passed = GameManager.Instance.CheckPassword(_id, InputField.text, ElementType.Folder);
@@ -42,6 +44,8 @@ public class PasswordWindow : MonoBehaviour
 		HintText.text = GameManager.Instance.WorldState > 0 ? hint : "";
 		_id = id;
 		ErrorImage.gameObject.SetActive(false);
+		InputField.Select();
+		InputField.ActivateInputField();
 		OkButton.onClick.AddListener(() =>
 		{
 			bool passed = GameManager.Instance.CheckPassword(_id, InputField.text, ElementType.Text);
@@ -65,6 +69,8 @@ public class PasswordWindow : MonoBehaviour
 		HintText.text = GameManager.Instance.WorldState > 0 ? hint : "";
 		_id = id;
 		ErrorImage.gameObject.SetActive(false);
+		InputField.Select();
+		InputField.ActivateInputField();
 		OkButton.onClick.AddListener(() =>
 		{
 			bool passed = GameManager.Instance.CheckPassword(_id, InputField.text, ElementType.Image);
@@ -88,6 +94,8 @@ public class PasswordWindow : MonoBehaviour
 		HintText.text = GameManager.Instance.WorldState > 0 ? hint : "";
 		_id = id;
 		ErrorImage.gameObject.SetActive(false);
+		InputField.Select();
+		InputField.ActivateInputField();
 		OkButton.onClick.AddListener(() =>
 		{
 			bool passed = GameManager.Instance.CheckPassword(_id, InputField.text, ElementType.Bin);
