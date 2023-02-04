@@ -97,6 +97,8 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	public void AdvanceWorldStateByOne() => SetWorldState(WorldState + 1);
+
 	private void EvaluateWorldState()
 	{
 		if (WorldState >= EndWorldState)
