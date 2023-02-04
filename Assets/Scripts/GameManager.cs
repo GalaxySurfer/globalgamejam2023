@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour
 	{
 		if (_currentViewId <= 0) return;
 		int previousViewId = _viewList.First(x => x.ViewId == _currentViewId).PreviousViewId;
+		if (previousViewId == 0) return;
 		View previousView = _viewList.First(x => x.ViewId == previousViewId);
 		RenderView(previousView);
 	}
