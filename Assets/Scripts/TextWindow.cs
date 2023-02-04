@@ -18,4 +18,9 @@ public class TextWindow : MonoBehaviour
 	{
 		Destroy(gameObject);
 	}
+
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Escape)) Close();
+	}
 }
