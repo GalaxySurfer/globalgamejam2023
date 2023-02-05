@@ -16,7 +16,31 @@ MonoBehaviour:
   PreviousViewId: 1
   Path: root:/Pictures
   Elements:
-  - Id: 0
-    Name: birthday1997.pic
+  - Id: 5
+    Name: my_love.pic
     HasPassword: 0
     Type: 2
+    OnOpen:
+      m_PersistentCalls:
+        m_Calls: []
+  - Id: 6
+    Name: apartment.pic
+    HasPassword: 0
+    Type: 2
+    OnOpen:
+      m_PersistentCalls:
+        m_Calls: []
+  - Id: 4
+    Name: summer_98.pic
+    HasPassword: 0
+    Type: 2
+    OnOpen:
+      m_PersistentCalls:
+        m_Calls: []
+  - Id: 0
+    Name: celebration.pic
+    HasPassword: 0
+    Type: 2
+    OnOpen:
+      m_PersistentCalls:
+        m_Calls: []

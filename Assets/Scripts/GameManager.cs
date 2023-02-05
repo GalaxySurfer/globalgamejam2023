@@ -266,7 +266,9 @@ public class GameManager : MonoBehaviour
             MouseClickSource.Play();
             GameObject window = Instantiate(ImageWindowPrefab, GameScreen.transform);
             ImageFile file = _imageFileList.First(x => x.Id == id);
-            window.GetComponent<ImageWindow>().Init(file.FileName, file.Image);
+			View view = _viewList.First(x => x.Elements.FirstOrDefault(y => y.Id == id && y.Type == ElementType.Image) != null);
+			view.Elements.First(x => x.Id == id).OnOpen?.Invoke();
+			window.GetComponent<ImageWindow>().Init(file.FileName, file.Image);
         }
     }
 
