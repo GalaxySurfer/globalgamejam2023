@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 645ebdd7d60b7ca4a8abfec79ad96433, type: 3}
+  m_Name: 7_SarahDialogueChain
+  m_EditorClassIdentifier: 
+  Id: 7
+  Chain:
+  - {fileID: 11400000, guid: 5fb4397ccd187664d802eeccd0f4b2df, type: 2}
+  - {fileID: 11400000, guid: 7b8e649cfa76cff4fa83b7dbb7750542, type: 2}
+  - {fileID: 11400000, guid: 806ab623da93c8e4ebeea502af73bb24, type: 2}
+  - {fileID: 11400000, guid: 61dcf70f50adfc848921dd5c4a04c875, type: 2}
+  - {fileID: 11400000, guid: 1154a9922a9ff4e4c836b2512a2264a1, type: 2}
+  - {fileID: 11400000, guid: 84f285b16be12ed41bfe5f33b2f21046, type: 2}

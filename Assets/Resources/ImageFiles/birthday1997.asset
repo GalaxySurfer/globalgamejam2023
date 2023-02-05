@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: birthday1997
   m_EditorClassIdentifier: 
   Id: 0
-  FileName: birthday1997.pic
+  FileName: celebration.pic
   Image: {fileID: 21300000, guid: f221caa77dbbc824ca0b45a617a8cc11, type: 3}

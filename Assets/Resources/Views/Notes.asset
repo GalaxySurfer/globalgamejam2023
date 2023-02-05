@@ -20,7 +20,34 @@ MonoBehaviour:
     Name: note1.text
     HasPassword: 0
     Type: 1
+    OnOpen:
+      m_PersistentCalls:
+        m_Calls: []
   - Id: 2
     Name: note2.text
     HasPassword: 0
     Type: 1
+    OnOpen:
+      m_PersistentCalls:
+        m_Calls: []
+  - Id: 11
+    Name: diary0405.text
+    HasPassword: 0
+    Type: 1
+    OnOpen:
+      m_PersistentCalls:
+        m_Calls: []
+  - Id: 12
+    Name: diary0807.text
+    HasPassword: 0
+    Type: 1
+    OnOpen:
+      m_PersistentCalls:
+        m_Calls: []
+  - Id: 13
+    Name: diary1608.text
+    HasPassword: 0
+    Type: 1
+    OnOpen:
+      m_PersistentCalls:
+        m_Calls: []

@@ -9,15 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55094ae485898fb4daa9ee84c76113f7, type: 3}
-  m_Name: CuttyReactionTable
+  m_Script: {fileID: 11500000, guid: 6727c4c6611fa01478f2c5b2a666bd55, type: 3}
+  m_Name: apartment
   m_EditorClassIdentifier: 
-  ReactionList:
-  - WorldState: 2
-    DialogueChainId: 0
-  - WorldState: 3
-    DialogueChainId: 1
-  - WorldState: 4
-    DialogueChainId: 2
-  - WorldState: 10
-    DialogueChainId: 9
+  Id: 6
+  FileName: apartment.pic
+  Image: {fileID: 21300000, guid: 96b91ebcf2b70d04ba460b955691493f, type: 3}
