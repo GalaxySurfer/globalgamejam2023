@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: I'm sure there is an..explanation though. Sarah wouldn't need all this just
     to do..laundry, right?
-  CuttyImage: {fileID: 21300000, guid: f7bc5927843314c7a8c4ed6cbbeaaf3d, type: 3}
+  CuttyImage: {fileID: 21300000, guid: 36b994d95874a417da758aa2a6978ef3, type: 3}
   Choices:
   - ChoiceName: No
     OnChoice:
