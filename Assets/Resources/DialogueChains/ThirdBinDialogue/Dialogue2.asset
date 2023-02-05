@@ -12,16 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c7bebe0cdd8984fa940b7da868ac87, type: 3}
   m_Name: Dialogue2
   m_EditorClassIdentifier: 
-  Text: 'I don''t like what I see! Maybe Sarah lied to me, I feel betrayed.
-
-    You
-    are now able to delete the files'
-  CuttyImage: {fileID: 21300000, guid: f7bc5927843314c7a8c4ed6cbbeaaf3d, type: 3}
+  Text: Do you want me to read it for you?
+  CuttyImage: {fileID: 21300000, guid: 575639ae1168e40b4a5930a7d6501d5b, type: 3}
   Choices:
-  - ChoiceName: ->
+  - ChoiceName: Yes
     OnChoice:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 11400000, guid: 831a6b186bd6fb14aa0a17820a24a326, type: 2}
+          m_TargetAssemblyTypeName: ScriptableObjectManager, Assembly-CSharp
+          m_MethodName: SetNewDialogueChain
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 11
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 11400000, guid: 831a6b186bd6fb14aa0a17820a24a326, type: 2}
           m_TargetAssemblyTypeName: ScriptableObjectManager, Assembly-CSharp
           m_MethodName: NextDialogueText
@@ -34,45 +43,25 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - ChoiceName: No
+    OnChoice:
+      m_PersistentCalls:
+        m_Calls:
         - m_Target: {fileID: 11400000, guid: 831a6b186bd6fb14aa0a17820a24a326, type: 2}
           m_TargetAssemblyTypeName: ScriptableObjectManager, Assembly-CSharp
-          m_MethodName: ToggleBlockScreen
-          m_Mode: 6
+          m_MethodName: SetNewDialogueChain
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
+            m_IntArgument: 10
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
         - m_Target: {fileID: 11400000, guid: 831a6b186bd6fb14aa0a17820a24a326, type: 2}
           m_TargetAssemblyTypeName: ScriptableObjectManager, Assembly-CSharp
-          m_MethodName: ToggleSpeechBubble
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 11400000, guid: 831a6b186bd6fb14aa0a17820a24a326, type: 2}
-          m_TargetAssemblyTypeName: ScriptableObjectManager, Assembly-CSharp
-          m_MethodName: ToggleCutty
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-        - m_Target: {fileID: 11400000, guid: 831a6b186bd6fb14aa0a17820a24a326, type: 2}
-          m_TargetAssemblyTypeName: ScriptableObjectManager, Assembly-CSharp
-          m_MethodName: ShowCredits
+          m_MethodName: NextDialogueText
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialogue1
   m_EditorClassIdentifier: 
   Text: Can't open the this file! Don't even know what it contains.
-  CuttyImage: {fileID: 21300000, guid: f7bc5927843314c7a8c4ed6cbbeaaf3d, type: 3}
+  CuttyImage: {fileID: 21300000, guid: f5577d294bdd54f5c915355acf0857c6, type: 3}
   Choices:
   - ChoiceName: Delete
     OnChoice:

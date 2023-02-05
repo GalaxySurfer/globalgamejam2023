@@ -11,6 +11,7 @@ public class CreditScript : MonoBehaviour
     public List<string> CreditStrings;
     public float CharacterDelay = 0.025f;
     public float LineDelay = 0.25f;
+	public AudioSource CreditMusicSource;
 
     private readonly StringBuilder _builder = new StringBuilder();
 
@@ -18,6 +19,8 @@ public class CreditScript : MonoBehaviour
 
     private IEnumerator DoTextCrawl()
     {
+		CreditMusicSource.Play();
+		GameManager.Instance.ComputerLoopSource.Stop();
         foreach (string line in CreditStrings)
         {
             int indexOfLine = CreditStrings.IndexOf(line);

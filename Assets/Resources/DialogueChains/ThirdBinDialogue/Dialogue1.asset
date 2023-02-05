@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c7bebe0cdd8984fa940b7da868ac87, type: 3}
   m_Name: Dialogue1
   m_EditorClassIdentifier: 
-  Text: I have decided to take a look into the files now that you got the correct
-    passwords
+  Text: I think that was the last one. Let me see if I can access the content of
+    this file now.
   CuttyImage: {fileID: 21300000, guid: 575639ae1168e40b4a5930a7d6501d5b, type: 3}
   Choices:
   - ChoiceName: ->

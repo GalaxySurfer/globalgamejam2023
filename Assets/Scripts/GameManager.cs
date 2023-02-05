@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public Cutty CuttyScreen;
     public TMP_Text PathField;
     public AudioSource MouseClickSource;
+	public AudioSource ComputerLoopSource;
     [Header("Prefabs"), Space(5)]
     public GameObject SystemElementPrefab;
     public GameObject TextWindowPrefab;

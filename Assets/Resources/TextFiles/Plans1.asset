@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 7
   FileName: Plans1.text
-  Text: '---------------------------------
+  Text: '|--------------------------------
 
-    |             TODO              |
+    | * |           TODO           
+    |
 
     |--------------------------------
 
-    |
-    * | Talk with Personal Trainer|
+    | * | Talk with Personal Trainer|
 
     |--------------------------------
 
@@ -42,5 +42,10 @@ MonoBehaviour:
 
     |
     * | Airplane Tickets          |
+
+    |--------------------------------
+
+    |
+    * | Get DNA results           |
 
     |--------------------------------'

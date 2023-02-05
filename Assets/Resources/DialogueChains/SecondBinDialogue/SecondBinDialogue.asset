@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c7bebe0cdd8984fa940b7da868ac87, type: 3}
   m_Name: SecondBinDialogue
   m_EditorClassIdentifier: 
-  Text: I still won't help you, I don't trust you!
+  Text: I'm starting to see a pattern here. Maybe if you find all of the .bin files
+    I can open them.
   CuttyImage: {fileID: 21300000, guid: f7bc5927843314c7a8c4ed6cbbeaaf3d, type: 3}
   Choices:
   - ChoiceName: ->

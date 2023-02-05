@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93c7bebe0cdd8984fa940b7da868ac87, type: 3}
+  m_Name: Readfilesdialogue1
+  m_EditorClassIdentifier: 
+  Text: Okay give me a moment
+  CuttyImage: {fileID: 21300000, guid: badcee457986d48ff9060a0c86a443a2, type: 3}
+  Choices:
+  - ChoiceName: ->
+    OnChoice:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 831a6b186bd6fb14aa0a17820a24a326, type: 2}
+          m_TargetAssemblyTypeName: ScriptableObjectManager, Assembly-CSharp
+          m_MethodName: NextDialogueText
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
