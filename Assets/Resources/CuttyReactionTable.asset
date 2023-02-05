@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CuttyReactionTable
   m_EditorClassIdentifier: 
   ReactionList:
-  - WorldState: 1
+  - WorldState: 2
     DialogueChainId: 0
   - WorldState: 4
     DialogueChainId: 1

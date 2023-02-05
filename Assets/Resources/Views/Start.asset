@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec54324ad2f94004bbf4643b155038a9, type: 3}
-  m_Name: Documents
+  m_Name: Start
   m_EditorClassIdentifier: 
-  ViewId: 2
-  PreviousViewId: 1
-  Path: root:/Documents
+  ViewId: 0
+  PreviousViewId: -1
+  Path: root:/
   Elements:
-  - Id: 5
-    Name: Files
+  - Id: 0
+    Name: root
     HasPassword: 1
     Type: 0
     OnOpen:
@@ -30,22 +30,8 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 3
+            m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - Id: 8
-    Name: Notes
-    HasPassword: 0
-    Type: 0
-    OnOpen:
-      m_PersistentCalls:
-        m_Calls: []
-  - Id: 4
-    Name: Bills
-    HasPassword: 0
-    Type: 0
-    OnOpen:
-      m_PersistentCalls:
-        m_Calls: []

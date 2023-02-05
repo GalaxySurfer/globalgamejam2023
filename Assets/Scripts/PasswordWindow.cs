@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using static PasswordLookup;
 using static View;
@@ -31,9 +32,10 @@ public class PasswordWindow : MonoBehaviour
 			}
 			else
 			{
-				GameManager.Instance.OpenFolder(_id, false);
-				PasswordPair pair = GameManager.Instance.GetPasswordPair(_id, ElementType.Folder);
-				if(pair != null && pair.NewWorldState > -1) GameManager.Instance.SetWorldState(pair.NewWorldState);
+				UnityEvent onOpenEvents = GameManager.Instance.GetViewWithSystemElementId(_id, ElementType.Folder);
+				onOpenEvents?.Invoke();
+				if(_id == 0) GameManager.Instance.OpenFolder(1, false);
+				else GameManager.Instance.OpenFolder(_id, false);
 				Destroy(gameObject);
 			}
 		});
@@ -56,9 +58,9 @@ public class PasswordWindow : MonoBehaviour
 			}
 			else
 			{
+				UnityEvent onOpenEvents = GameManager.Instance.GetViewWithSystemElementId(_id, ElementType.Text);
+				onOpenEvents?.Invoke();
 				GameManager.Instance.OpenTextFile(_id, false);
-				PasswordPair pair = GameManager.Instance.GetPasswordPair(_id, ElementType.Text);
-				if (pair != null && pair.NewWorldState > -1) GameManager.Instance.SetWorldState(pair.NewWorldState);
 				Destroy(gameObject);
 			}
 		});
@@ -81,9 +83,9 @@ public class PasswordWindow : MonoBehaviour
 			}
 			else
 			{
+				UnityEvent onOpenEvents = GameManager.Instance.GetViewWithSystemElementId(_id, ElementType.Image);
+				onOpenEvents?.Invoke();
 				GameManager.Instance.OpenImageFile(_id, false);
-				PasswordPair pair = GameManager.Instance.GetPasswordPair(_id, ElementType.Image);
-				if (pair != null && pair.NewWorldState > -1) GameManager.Instance.SetWorldState(pair.NewWorldState);
 				Destroy(gameObject);
 			}
 		});
@@ -106,8 +108,8 @@ public class PasswordWindow : MonoBehaviour
 			}
 			else
 			{
-				PasswordPair pair = GameManager.Instance.GetPasswordPair(_id, ElementType.Bin);
-				if (pair != null && pair.NewWorldState > -1) GameManager.Instance.SetWorldState(pair.NewWorldState);
+				UnityEvent onOpenEvents = GameManager.Instance.GetViewWithSystemElementId(_id, ElementType.Bin);
+				onOpenEvents?.Invoke();
 				Destroy(gameObject);
 			}
 		});

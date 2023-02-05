@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using static PasswordLookup;
 using static View;
 
@@ -10,6 +11,8 @@ public class GameManager : MonoBehaviour
 {
 	[Header("Setup")]
 	public int FinalDialogueChainId;
+	public GameObject StartScreen;
+	public GameObject StartScreenPasswordParent;
 	public GameObject IconParent;
 	public GameObject GameScreen;
 	public Cutty CuttyScreen;
@@ -32,7 +35,7 @@ public class GameManager : MonoBehaviour
 	private int _currentDialogueIndex = -1;
 
 	// The current state of the world.
-	public int WorldState { get; private set; }
+	public int WorldState { get; private set; } = 0;
 	private readonly List<int> openedBinFiles = new List<int>();
 
 	private List<View> _viewList;
@@ -83,8 +86,8 @@ public class GameManager : MonoBehaviour
 
 		CuttyScreen.ToggleCutty(false);
 
-		View rootFolder = _viewList.First(x => x.ViewId == 1);
-		RenderView(rootFolder);
+		View start = _viewList.First(x => x.ViewId == 0);
+		RenderView(start);
 	}
 
 	public void SetWorldState(int newState)
@@ -94,6 +97,13 @@ public class GameManager : MonoBehaviour
 		{
 			WorldState = newState;
 			Debug.Log($"New WorldState: {WorldState}");
+			if (WorldState == 1)
+			{
+				StartScreen.SetActive(false);
+				StartScreenPasswordParent.SetActive(false);
+				View rootFolder = _viewList.First(x => x.ViewId == 1);
+				RenderView(rootFolder);
+			}
 			CuttyScreen.EvaluateWorldState();
 		}
 	}
@@ -102,10 +112,10 @@ public class GameManager : MonoBehaviour
 
 	public void BinFileOpened(int binFileId)
 	{
-		if(!openedBinFiles.Contains(binFileId))
+		if (!openedBinFiles.Contains(binFileId))
 		{
 			openedBinFiles.Add(binFileId);
-			if(openedBinFiles.Count >= _binFileList.Count)
+			if (openedBinFiles.Count >= _binFileList.Count)
 			{
 				CuttyScreen.StartFinalChain(FinalDialogueChainId);
 			}
@@ -129,17 +139,19 @@ public class GameManager : MonoBehaviour
 		}
 		PathField.text = view.Path;
 		_currentViewId = view.ViewId;
+		Transform parentTransform = view.ViewId == 0 ? StartScreen.transform : IconParent.transform;
 		foreach (ViewElement element in view.Elements)
 		{
 			// If this is null, then we have to render it, not hide it.
 			if (_hideTable.HideList.FirstOrDefault(x => x.WorldState <= WorldState && x.SystemElementId == element.Id && x.Type == element.Type) == null)
 			{
-				GameObject systemElement = Instantiate(SystemElementPrefab, IconParent.transform);
+				GameObject systemElement = Instantiate(SystemElementPrefab, parentTransform);
 				SystemElement elementComp = systemElement.GetComponent<SystemElement>();
 				switch (element.Type)
 				{
 					case ElementType.Folder:
 						elementComp.InitFolderButton(element.Name, element.Id, element.HasPassword);
+						if (view.ViewId == 0) elementComp.ElementText.fontSize = 80f;
 						break;
 					case ElementType.Text:
 						elementComp.InitTextFileButton(element.Name, element.Id, element.HasPassword);
@@ -175,7 +187,7 @@ public class GameManager : MonoBehaviour
 			}
 			else
 			{
-				GameObject window = Instantiate(PasswordWindowPrefab, GameScreen.transform);
+				GameObject window = Instantiate(PasswordWindowPrefab, id == 0 ? StartScreenPasswordParent.transform : GameScreen.transform);
 				window.GetComponent<PasswordWindow>().InitPasswordFolder(pair.Hint, id);
 			}
 		}
@@ -289,5 +301,12 @@ public class GameManager : MonoBehaviour
 
 	public bool CheckPassword(int id, string password, ElementType type)
 		=> _passwords.PasswordList.FirstOrDefault(x => x.Id == id && x.Password == password && x.Type == type) != null;
+
+	public UnityEvent GetViewWithSystemElementId(int systemElementId, ElementType type)
+	{
+		View view = _viewList.FirstOrDefault(x => x.Elements.FirstOrDefault(y => y.Id == systemElementId && y.Type == type) != null);
+		if (view == null) return null;
+		return view.Elements.First(y => y.Id == systemElementId && y.Type == type).OnOpen;
+	}
 	#endregion
 }

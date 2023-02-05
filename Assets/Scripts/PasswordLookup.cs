@@ -15,7 +15,6 @@ public class PasswordLookup : ScriptableObject
 		public int Id;
 		public string Password;
 		public string Hint;
-		public int NewWorldState;
 		public ElementType Type;
 	}
 }
