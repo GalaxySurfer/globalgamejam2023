@@ -12,10 +12,21 @@ public class PasswordWindow : MonoBehaviour
 	public TMP_InputField InputField;
 	public Image ErrorImage;
 	public Button OkButton;
+	public AudioSource ErrorSoundSource;
+	public AudioSource KeyboardClickSource;
 
 	private int _id;
 
-	public void InitPasswordFolder(string hint, int id)
+    private void Start()
+    {
+		InputField.onValueChanged.AddListener((newString) =>
+		{
+			KeyboardClickSource.pitch = Random.Range(0.875f, 1f);
+			KeyboardClickSource.Play();
+		});
+    }
+
+    public void InitPasswordFolder(string hint, int id)
 	{
 		HintText.text = GameManager.Instance.WorldState > 1 ? hint : "";
 		_id = id;
@@ -115,7 +126,11 @@ public class PasswordWindow : MonoBehaviour
 		});
 	}
 
-	public void Cancel() => Destroy(gameObject);
+	public void Cancel()
+	{
+		GameManager.Instance.MouseClickSource.Play();
+		Destroy(gameObject);
+	}
 
 	private void Update()
 	{
@@ -125,12 +140,14 @@ public class PasswordWindow : MonoBehaviour
 		}
 		else if (Input.GetKeyUp(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return) && GameManager.Instance.CuttyScreen.CuttyBackground.isActiveAndEnabled == false)
 		{
+			GameManager.Instance.MouseClickSource.Play();
 			OkButton.onClick.Invoke();
 		}
 	}
 
 	private IEnumerator DoFlashErrorIcon()
 	{
+		ErrorSoundSource.Play();
 		float repeatDelay = .15f;
 		ErrorImage.gameObject.SetActive(true);
 		yield return new WaitForSeconds(repeatDelay);

@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 645ebdd7d60b7ca4a8abfec79ad96433, type: 3}
-  m_Name: FirstCuttyDialogue1
+  m_Name: 1_FilesFolderDialogue
   m_EditorClassIdentifier: 
-  Id: 0
+  Id: 1
   Chain:
-  - {fileID: 11400000, guid: 5e52eab9f277d664bbb4612c4b51353c, type: 2}
-  - {fileID: 11400000, guid: 31039282a76817940822784280a2611e, type: 2}
-  - {fileID: 11400000, guid: 196d7b2d9a75ff445befc1d13af99c5b, type: 2}
-  - {fileID: 11400000, guid: c4884c4f898ea6c4184f589b60c79271, type: 2}
+  - {fileID: 11400000, guid: a6839641645a74e4f9ce81a11c2427dc, type: 2}
+  - {fileID: 11400000, guid: 99f6d5556275b40429025f35b024fe0f, type: 2}

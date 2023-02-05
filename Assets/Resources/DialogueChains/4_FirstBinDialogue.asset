@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 645ebdd7d60b7ca4a8abfec79ad96433, type: 3}
-  m_Name: FirstBinDialogue
+  m_Name: 4_FirstBinDialogue
   m_EditorClassIdentifier: 
-  Id: 1
+  Id: 4
   Chain:
   - {fileID: 11400000, guid: c847bb588ab8c4bcb8afa6f56347b26c, type: 2}
   - {fileID: 11400000, guid: ae4a6de1a5a524fb297b9c8f9c2a9a21, type: 2}

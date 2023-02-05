@@ -9,35 +9,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec54324ad2f94004bbf4643b155038a9, type: 3}
-  m_Name: Vacation
+  m_Script: {fileID: 11500000, guid: 93c7bebe0cdd8984fa940b7da868ac87, type: 3}
+  m_Name: LaundryMaterialsDialogue5
   m_EditorClassIdentifier: 
-  ViewId: 9
-  PreviousViewId: 7
-  Path: root:/.../Files/Exercising Plans/Vacation
-  Elements:
-  - Id: 10
-    Name: itinerary_morroc_1998.text
-    HasPassword: 0
-    Type: 1
-    OnOpen:
-      m_PersistentCalls:
-        m_Calls: []
-  - Id: 2
-    Name: 03hntyt80agj0ags_agnasg.bin
-    HasPassword: 1
-    Type: 3
-    OnOpen:
+  Text: That's a lot of stuff and seemingly not...laundry related.
+  CuttyImage: {fileID: 21300000, guid: a4882ab9dd90247919cacb6bd6ea6317, type: 3}
+  Choices:
+  - ChoiceName: Uhuh
+    OnChoice:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 11400000, guid: 831a6b186bd6fb14aa0a17820a24a326, type: 2}
           m_TargetAssemblyTypeName: ScriptableObjectManager, Assembly-CSharp
-          m_MethodName: BinFileOpened
-          m_Mode: 3
+          m_MethodName: NextDialogueText
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 2
+            m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0

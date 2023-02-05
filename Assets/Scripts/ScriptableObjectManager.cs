@@ -14,4 +14,11 @@ public class ScriptableObjectManager : ScriptableObject
 	public void ToggleCutty(bool state) => GameManager.Instance.CuttyScreen.ToggleCutty(state);
 	public void ToggleSpeechBubble(bool state) => GameManager.Instance.CuttyScreen.ToggleSpeechBubble(state);
 	public void ToggleBlockScreen(bool state) => GameManager.Instance.CuttyScreen.ToggleBlockScreen(state);
+	public void BinFileOpened(int binId) => GameManager.Instance.BinFileOpened(binId);
+
+	public void ShowCredits()
+    {
+		GameManager.Instance.EndScreen.SetActive(true);
+		GameManager.Instance.EndScreen.GetComponent<CreditScript>().ShowCredits();
+    }
 }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 645ebdd7d60b7ca4a8abfec79ad96433, type: 3}
+  m_Name: 2_LaundryMaterialsDialogue
+  m_EditorClassIdentifier: 
+  Id: 2
+  Chain:
+  - {fileID: 11400000, guid: 7a6fe2b8cf19c5a48977ce45e70da892, type: 2}
+  - {fileID: 11400000, guid: a4e0c1ba20900b148997c0e5a304d231, type: 2}
+  - {fileID: 11400000, guid: 35b091c35143bbf43b3094f7af3050ec, type: 2}
+  - {fileID: 11400000, guid: b29e7c3e114e7e84caf1afae6e8d627f, type: 2}
+  - {fileID: 11400000, guid: 09c227d74e55b87408c7d4fa70ecfdf4, type: 2}
+  - {fileID: 11400000, guid: 25e0078f9594f9548814eff2af5732cd, type: 2}
+  - {fileID: 11400000, guid: 918c481b008097a4eb395cbf3e89cba3, type: 2}

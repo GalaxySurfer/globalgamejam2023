@@ -5,5 +5,4 @@ using UnityEngine;
 public class BinFile : ScriptableObject
 {
 	public int Id;
-	public int NewWorldState;
 }

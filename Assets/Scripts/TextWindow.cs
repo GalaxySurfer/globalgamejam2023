@@ -16,6 +16,7 @@ public class TextWindow : MonoBehaviour
 
 	public void Close()
 	{
+		GameManager.Instance.MouseClickSource.Play();
 		Destroy(gameObject);
 	}
 

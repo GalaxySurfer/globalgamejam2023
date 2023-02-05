@@ -15,6 +15,7 @@ public class ImageWindow : MonoBehaviour
 
 	public void Close()
 	{
+		GameManager.Instance.MouseClickSource.Play();
 		Destroy(gameObject);
 	}
 
